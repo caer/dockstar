@@ -13,9 +13,10 @@ WORKDIR /tmp/darkstar/sql
 RUN service mysql start && sleep 10 && sh seed-mysql.sh
 
 # Clean up temp and remove MySQL install.
+WORKDIR /
 RUN rm -r /tmp/darkstar
 RUN apt-get remove -y mysql-server && apt-get autoremove -y
-RUN touch /var/lib/mysql/hi.txt
+RUN touch /var/lib/mysql/dockstar
 
 # Create MySQL persistence volume.
 VOLUME /var/lib/mysql
