@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y mysql-server
 
 # Copy darkstar and seed files.
 COPY darkstar /tmp/darkstar
-COPY seed-mysql.sh /tmp/darkstar/sql/seed-mysql.sh
+COPY scripts/seed-mysql.sh /tmp/darkstar/sql/seed-mysql.sh
 
 # Prepare MySQL.
 WORKDIR /tmp/darkstar/sql

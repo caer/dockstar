@@ -27,13 +27,13 @@ USER altimit
 RUN sh autogen.sh && ./configure --enable-debug=gdb && make
 
 # Copy server script.
-COPY start-darkstar.sh /home/altimit/darkstar/start-darkstar.sh
+COPY scripts/start-darkstar.sh /home/altimit/darkstar/start-darkstar.sh
 
 # Copy server settings.
-COPY login_darkstar.conf /home/altimit/darkstar/conf/login_darkstar.conf
-COPY map_darkstar.conf /home/altimit/darkstar/conf/map_darkstar.conf
-COPY search_server.conf /home/altimit/darkstar/conf/search_server.conf
-COPY server_message.conf /home/altimit/darkstar/conf/server_message.conf
+COPY conf/login_darkstar.conf /home/altimit/darkstar/conf/login_darkstar.conf
+COPY conf/map_darkstar.conf /home/altimit/darkstar/conf/map_darkstar.conf
+COPY conf/search_server.conf /home/altimit/darkstar/conf/search_server.conf
+COPY conf/server_message.conf /home/altimit/darkstar/conf/server_message.conf
 
 # Start server.
 CMD ["/home/altimit/darkstar/start-darkstar.sh"]

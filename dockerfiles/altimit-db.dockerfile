@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y mysql-server
 VOLUME /var/lib/mysql
 
 # Prepare entrypoint.
-COPY start-mysql.sh /start.sh
+COPY config.sh /config.sh
+COPY scripts/start-mysql.sh /start.sh
 CMD ["sh", "-c", "/start.sh"]
 
 EXPOSE 3306

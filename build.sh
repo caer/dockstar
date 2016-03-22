@@ -1,5 +1,5 @@
 #!/bin/bash
-# This file builds the altimit-server and altimit-db Docker images.
+# This file generates all of the Docker images for the Darkstar server.
 
 # Clean out any old containers. (Note: We keep the data container, if present)
 docker stop altimit-server &> /dev/null
@@ -21,6 +21,6 @@ else
 fi
 
 # Kick off builds.
-docker build -f altimit-server.dockerfile -t altimit-server --no-cache .
-docker build -f altimit-db.dockerfile -t altimit-db --no-cache .
-docker build -f altimit-data.dockerfile -t altimit-data --no-cache .
+docker build -f dockerfiles/altimit-server.dockerfile -t altimit-server --no-cache .
+docker build -f dockerfiles/altimit-db.dockerfile -t altimit-db --no-cache .
+docker build -f dockerfiles/altimit-data.dockerfile -t altimit-data --no-cache .
