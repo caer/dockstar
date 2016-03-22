@@ -1,0 +1,25 @@
+FROM ubuntu
+MAINTAINER Brandon Sanders
+
+# Initialize MySQL.
+RUN apt-get update && apt-get install -y mysql-server
+
+# Copy darkstar and seed files.
+COPY darkstar /tmp/darkstar
+COPY seed-mysql.sh /tmp/darkstar/sql/seed-mysql.sh
+
+# Configure MySQL.
+WORKDIR /tmp/darkstar/sql
+RUN service mysql start && sleep 10 && sh seed-mysql.sh
+
+# Clean up temp.
+RUN rm -r /tmp/darkstar
+
+# Create mysql persistence volume.
+VOLUME /var/lib/mysql
+
+# Prepare entrypoint.
+COPY start-mysql.sh /start.sh
+CMD ["sh", "-c", "/start.sh"]
+
+EXPOSE 3306
