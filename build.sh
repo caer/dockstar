@@ -21,6 +21,6 @@ else
 fi
 
 # Kick off builds.
-docker build -f dockerfiles/altimit-server.dockerfile -t altimit-server --no-cache .
-docker build -f dockerfiles/altimit-db.dockerfile -t altimit-db --no-cache .
-docker build -f dockerfiles/altimit-data.dockerfile -t altimit-data --no-cache .
+docker build -f dockerfiles/altimit-server.dockerfile -t altimit-server .
+docker build -f dockerfiles/altimit-db.dockerfile -t altimit-db .
+docker build -f dockerfiles/altimit-data.dockerfile -t altimit-data .

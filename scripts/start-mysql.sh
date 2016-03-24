@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load configuration.
-source config.sh
+source /config.sh
 
 # Start MySQL.
 mysqld --bind-address=0.0.0.0 &

@@ -1,11 +1,15 @@
 FROM ubuntu
 MAINTAINER Brandon Sanders
 
+# Relink /bin/bash.
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # Initialize MySQL.
 RUN apt-get update && apt-get install -y mysql-server
 
 # Copy darkstar and seed files.
 COPY darkstar /tmp/darkstar
+COPY config.sh /tmp/darkstar/sql/config.sh
 COPY scripts/seed-mysql.sh /tmp/darkstar/sql/seed-mysql.sh
 
 # Prepare MySQL.
