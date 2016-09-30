@@ -17,35 +17,35 @@ RUN ln -s g++-5 g++
 RUN ln -s cpp-5 cpp
 
 # Create Altimit user.
-RUN useradd -ms /bin/bash altimit
-WORKDIR /home/altimit
+RUN useradd -ms /bin/bash dockstar
+WORKDIR /home/dockstar
 
 # Copy Darkstar source and prepare for build.
-COPY darkstar /home/altimit/darkstar
-RUN chown -R altimit: /home/altimit/darkstar
-WORKDIR /home/altimit/darkstar
+COPY darkstar /home/dockstar/darkstar
+RUN chown -R altimit: /home/dockstar/darkstar
+WORKDIR /home/dockstar/darkstar
 
 # Build Darkstar.
-USER altimit
+USER dockstar
 RUN sh autogen.sh && ./configure --enable-debug=gdb && make
 
 # Copy server script.
-COPY scripts/start-darkstar.sh /home/altimit/darkstar/start-darkstar.sh
+COPY scripts/start-darkstar.sh /home/dockstar/darkstar/start-darkstar.sh
 
 # Copy server settings.
-COPY conf/login_darkstar.conf /home/altimit/darkstar/conf/login_darkstar.conf
-COPY conf/map_darkstar.conf /home/altimit/darkstar/conf/map_darkstar.conf
-COPY conf/search_server.conf /home/altimit/darkstar/conf/search_server.conf
-COPY conf/server_message.conf /home/altimit/darkstar/conf/server_message.conf
+COPY conf/login_darkstar.conf /home/dockstar/darkstar/conf/login_darkstar.conf
+COPY conf/map_darkstar.conf /home/dockstar/darkstar/conf/map_darkstar.conf
+COPY conf/search_server.conf /home/dockstar/darkstar/conf/search_server.conf
+COPY conf/server_message.conf /home/dockstar/darkstar/conf/server_message.conf
 
 # Process server settings.
-COPY config.sh /home/altimit/darkstar/conf/config.sh
-COPY scripts/process-configs.sh /home/altimit/darkstar/conf/process-configs.sh
-WORKDIR /home/altimit/darkstar/conf
+COPY config.sh /home/dockstar/darkstar/conf/config.sh
+COPY scripts/process-configs.sh /home/dockstar/darkstar/conf/process-configs.sh
+WORKDIR /home/dockstar/darkstar/conf
 RUN sh process-configs.sh && cat login_darkstar.conf
 
 # Reset working directory so that the start script doesn't freak out.
-WORKDIR /home/altimit/darkstar
+WORKDIR /home/dockstar/darkstar
 
 # Start server.
-CMD ["/home/altimit/darkstar/start-darkstar.sh"]
+CMD ["/home/dockstar/darkstar/start-darkstar.sh"]

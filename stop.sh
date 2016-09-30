@@ -1,4 +1,4 @@
-docker stop altimit-server
-docker rm altimit-server
-docker stop altimit-db
-docker rm altimit-db
+docker stop dockstar-server
+docker rm dockstar-server
+docker stop dockstar-db
+docker rm dockstar-db
