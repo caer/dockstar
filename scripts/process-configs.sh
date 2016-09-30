@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load configuration.
-source /home/altimit/darkstar/conf/config.sh
+source /home/dockstar/darkstar/conf/config.sh
 
 # Process config files.
 sed -i "s/DS_USERNAME/${DS_USERNAME}/g" *.conf

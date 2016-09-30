@@ -2,10 +2,10 @@
 # This file generates all of the Docker images for the Darkstar server.
 
 # Clean out any old containers. (Note: We keep the data container, if present)
-docker stop altimit-server &> /dev/null
-docker rm altimit-server &> /dev/null
-docker stop altimit-db &> /dev/null
-docker rm altimit-db &> /dev/null
+docker stop dockstar-server &> /dev/null
+docker rm dockstar-server &> /dev/null
+docker stop dockstar-db &> /dev/null
+docker rm dockstar-db &> /dev/null
 
 # Clone repo and checkout stable.
 if [ -d "darkstar" ]; then
@@ -21,6 +21,6 @@ else
 fi
 
 # Kick off builds.
-docker build -f dockerfiles/altimit-server.dockerfile -t altimit-server .
-docker build -f dockerfiles/altimit-db.dockerfile -t altimit-db .
-docker build -f dockerfiles/altimit-data.dockerfile -t altimit-data .
+docker build -f dockerfiles/dockstar-server.dockerfile -t dockstar-server .
+docker build -f dockerfiles/dockstar-db.dockerfile -t dockstar-db .
+docker build -f dockerfiles/dockstar-data.dockerfile -t dockstar-data .
