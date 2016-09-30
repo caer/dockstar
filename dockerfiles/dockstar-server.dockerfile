@@ -16,7 +16,7 @@ RUN ln -s gcc-5 gcc
 RUN ln -s g++-5 g++
 RUN ln -s cpp-5 cpp
 
-# Create Altimit user.
+# Create Dockstar user.
 RUN useradd -ms /bin/bash dockstar
 WORKDIR /home/dockstar
 
