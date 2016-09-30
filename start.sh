@@ -7,5 +7,5 @@ docker run --name dockstar-db --net=host --volumes-from dockstar-data -dit docks
 # Wait a brief moment to make absolute certain the DB is ready in time.
 sleep 5
 
-# Start Docker Altimit container for the game server.
+# Start Docker Dockstar container for the game server.
 docker run --name dockstar-server --net=host -dit dockstar-server
