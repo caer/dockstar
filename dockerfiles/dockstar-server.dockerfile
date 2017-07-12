@@ -22,7 +22,7 @@ WORKDIR /home/dockstar
 
 # Copy Darkstar source and prepare for build.
 COPY darkstar /home/dockstar/darkstar
-RUN chown -R altimit: /home/dockstar/darkstar
+RUN chown -R dockstar: /home/dockstar/darkstar
 WORKDIR /home/dockstar/darkstar
 
 # Build Darkstar.
