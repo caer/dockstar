@@ -10,7 +10,7 @@ Getting started with Dockstar is very easy, and you only need to meet a few simp
 
 Once these requirements are met, simply run the following command in your terminal:
 
-    git clone http://TODO: Dockstar URL
+    git clone https://github.com/Mizumi/dockstar
 
 Once that's done, you should have a folder called "dockstar" on your computer. This folder contains a variety of useful things, including:
 
