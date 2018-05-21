@@ -1,11 +1,10 @@
 #!/bin/bash
-# This file generates all of the Docker images for the Darkstar server.
 
-# Clean out any old containers. (Note: We keep the data container, if present)
-docker stop dockstar-server &> /dev/null
-docker rm dockstar-server &> /dev/null
-docker stop dockstar-db &> /dev/null
-docker rm dockstar-db &> /dev/null
+# Source configuration.
+source config.sh
+
+# Stop running instanced.
+bash stop.sh
 
 # Clone repo and checkout stable.
 if [ -d "darkstar" ]; then
@@ -20,7 +19,5 @@ else
     cd ..
 fi
 
-# Kick off builds.
-docker build -f dockerfiles/dockstar-server.dockerfile -t dockstar-server .
-docker build -f dockerfiles/dockstar-db.dockerfile -t dockstar-db .
-docker build -f dockerfiles/dockstar-data.dockerfile -t dockstar-data .
+# Build composer.
+docker-compose build
