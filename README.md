@@ -10,18 +10,15 @@ Dockstar lets you configure, build, and deploy a new Darkstar server with zero e
 5. A Darkstar server will now be running at your computer's public IP address. Enjoy!
 
 # Configuration
-The root project folder contains a variety of helpful things:
+All of the configuration options can be found in the `conf` folder. ***DO NOT*** change any of the values labeled as `DS_USERNAME`, `DS_PASSWORD`, or `DS_SERVERNAME`; these values are automatically replaced whenever the server is rebuilt. When you are satified with your configuration changes, you must re-run `bash build.sh` for the changes to take effect.
 
-- The build.sh file, which you will use to build (and re-build) the docker images for Dockstar.
-- The config.sh file, which you will use to configure general Dockstar settings before running a build.
-- The conf folder, which contains the Darkstar configuration files that you can edit before running a build.
-- The start.sh file, which you will use to start the Dockstar server after it's built.
-- The stop.sh file, which you will use to stop the Dockstar server after it's built.
+## Game Masters
+Whenever the Dockstar server is started via `bash start.sh`, it will look for an array environment variable called `DS_GMS_LIST`. If this variable exists and contains the names of any characters in the game world, those characters will be automatically promoted to level 5 GMS. Here's an example configuration you could perform to make `Crahda` and `Rickie` GMs:
 
-You can feel free to play around with any of the configuration files in the conf/ folder in order to adjust the Dockstar server to your liking. Take care not to change any of the items labeled DS_USERNAME, DS_PASSWORD or DS_SERVERNAME inside the `.conf` files; these values will automatically be replaced by the Dockstar scripts when the images are built. Whenever you make a change to any of the configuration files, you ***must*** re-run `bash build.sh` for those changes to take effect.
+    export DS_GMS_LIST=("Crahda" "Rickie")
 
 ## Zone IP
-Whenever you start the Dockstar server via `bash start.sh`, it will automatically configure the Zone IP to be your computers public IP address. To override this with a custom domain or other thing, simply run the following command at your command line, replacing `my.domain.com` with your desired public IP:
+Whenever the Dockstar server is started via `bash start.sh`, it will automatically configure the Zone IP to be your computers public IP address. To override this with a custom domain or other thing, simply run the following command at your command line, replacing `my.domain.com` with your desired public IP:
 
     export ZONE_IP=my.domain.com
 

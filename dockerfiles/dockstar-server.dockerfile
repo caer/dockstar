@@ -46,7 +46,7 @@ WORKDIR /home/dockstar/darkstar
 
 # Build Darkstar.
 USER dockstar
-RUN sh autogen.sh && ./configure --enable-debug=gdb && make
+RUN sh autogen.sh && ./configure --enable-debug=gdb && make -j 8
 
 # Copy server script.
 COPY scripts/start-darkstar.sh /home/dockstar/darkstar/start-darkstar.sh
@@ -56,6 +56,7 @@ COPY conf/login_darkstar.conf /home/dockstar/darkstar/conf/login_darkstar.conf
 COPY conf/map_darkstar.conf /home/dockstar/darkstar/conf/map_darkstar.conf
 COPY conf/search_server.conf /home/dockstar/darkstar/conf/search_server.conf
 COPY conf/server_message.conf /home/dockstar/darkstar/conf/server_message.conf
+COPY conf/settings.lua /home/dockstar/darkstar/scripts/settings.lua
 
 # Process server settings.
 COPY scripts/process-env.sh /home/dockstar/darkstar/conf/process-env.sh
