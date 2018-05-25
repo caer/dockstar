@@ -12,7 +12,9 @@ Dockstar lets you configure, build, and deploy a new [Darkstar Server](https://g
 5. A Darkstar server will now be running at the IP address specified by the `$ZONE_IP` environment variable (defaults to your computer's public IP). Enjoy!
 
 # Configuration
-All of the configuration options can be found in the `conf` folder. ***DO NOT*** change any of the values labeled as `DS_USERNAME`, `DS_PASSWORD`, or `DS_SERVERNAME`; these values are automatically replaced whenever the server is rebuilt. When you are satified with your configuration changes, you must re-run `bash build.sh` for the changes to take effect.
+All of the configuration files can be found in the `conf` folder. Files that end in `.skel` will be automatically loaded as their corresponding `.conf` files when the server starts, and all instances of `DS_USERNAME`, `DS_PASSWORD`, and `DS_SERVERNAME` will be replaced.
+
+Whatever you do, ***DO NOT*** change any of the existing instances of `DS_USERNAME`, `DS_PASSWORD`, or `DS_SERVERNAME` in the `.skel` files.
 
 ## Game Masters
 Whenever the Dockstar server is started via `bash start.sh`, it will look for an environment variable called `DS_GMS_LIST`. If this variable exists and contains the names of any characters in the game world, those characters will be automatically promoted to level 5 GMS. 

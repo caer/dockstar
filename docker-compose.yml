@@ -20,10 +20,6 @@ services:
         build:
             context: .
             dockerfile: dockerfiles/dockstar-server.dockerfile
-            args:
-                - DS_USERNAME=${DS_USERNAME}
-                - DS_PASSWORD=${DS_PASSWORD}
-                - DS_SERVERNAME=${DS_SERVERNAME}
         environment:
             - ZONE_IP
             - DS_GMS_LIST
@@ -37,3 +33,10 @@ services:
             - "53445:53445"
             - "54230:54230/udp"
             - "54230:54230/tcp"
+        volumes:
+            - ./scripts/start-darkstar.sh:/home/dockstar/darkstar/start-darkstar.sh
+            - ./conf/login_darkstar.skel:/home/dockstar/darkstar/conf/login_darkstar.skel
+            - ./conf/map_darkstar.skel:/home/dockstar/darkstar/conf/map_darkstar.skel
+            - ./conf/search_server.skel:/home/dockstar/darkstar/conf/search_server.skel
+            - ./conf/server_message.skel:/home/dockstar/darkstar/conf/server_message.skel
+            - ./conf/settings.lua:/home/dockstar/darkstar/scripts/settings.lua
