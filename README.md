@@ -17,7 +17,7 @@ All of the configuration options can be found in the `conf` folder. ***DO NOT***
 ## Game Masters
 Whenever the Dockstar server is started via `bash start.sh`, it will look for an environment variable called `DS_GMS_LIST`. If this variable exists and contains the names of any characters in the game world, those characters will be automatically promoted to level 5 GMS. 
 
-Here's an example configuration you could perform to make `Crahda` and `Rickie` GMs; player names are separated by comma characters:
+Here's an example configuration you could perform to make `Crahda` and `Rickie` GMs; player names are separated by commas:
 
     export DS_GMS_LIST="Crahda,Rickie"
 
