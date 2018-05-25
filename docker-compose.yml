@@ -1,14 +1,9 @@
 version: "3"
 services:
     dockstar-db:
-        image: mysql:5.7.22
+        image: mysql:5.6
         environment:
-            - MYSQL_ALLOW_EMPTY_PASSWORD=true
-            - MYSQL_ROOT_HOST=localhost
-            - MYSQL_HOST=127.0.0.1
-            - MYSQL_USER=${DS_USERNAME}
-            - MYSQL_PASSWORD=${DS_PASSWORD}
-            - MYSQL_DATABASE=dspdb
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
             - DS_USERNAME
             - DS_PASSWORD
         ports:
@@ -16,7 +11,8 @@ services:
         volumes:
             - ./data:/var/lib/mysql
             - ./darkstar/sql:/tmp/darkstar/sql/:ro
-            - ./scripts/mysql/init:/docker-entrypoint-initdb.d/:ro
+            - ./scripts/mysql:/docker-entrypoint-initdb.d/:ro
+            
     dockstar-server:
         depends_on:
             - dockstar-db
@@ -39,3 +35,4 @@ services:
             - "54002:54002"
             - "54230:54230"
             - "54231:54231"
+            - "53445:53445"

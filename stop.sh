@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source configuration.
-source config.sh
+source scripts/config.sh
 
 # Stop composer.
 docker-compose down
