@@ -15,9 +15,11 @@ Dockstar lets you configure, build, and deploy a new [Darkstar Server](https://g
 All of the configuration options can be found in the `conf` folder. ***DO NOT*** change any of the values labeled as `DS_USERNAME`, `DS_PASSWORD`, or `DS_SERVERNAME`; these values are automatically replaced whenever the server is rebuilt. When you are satified with your configuration changes, you must re-run `bash build.sh` for the changes to take effect.
 
 ## Game Masters
-Whenever the Dockstar server is started via `bash start.sh`, it will look for an array of environment variable called `DS_GMS_LIST`. If this variable exists and contains the names of any characters in the game world, those characters will be automatically promoted to level 5 GMS. Here's an example configuration you could perform to make `Crahda` and `Rickie` GMs:
+Whenever the Dockstar server is started via `bash start.sh`, it will look for an environment variable called `DS_GMS_LIST`. If this variable exists and contains the names of any characters in the game world, those characters will be automatically promoted to level 5 GMS. 
 
-    export DS_GMS_LIST=("Crahda" "Rickie")
+Here's an example configuration you could perform to make `Crahda` and `Rickie` GMs; player names are separated by comma characters:
+
+    export DS_GMS_LIST="Crahda,Rickie"
 
 ## Zone IP
 Whenever the Dockstar server is started via `bash start.sh`, it will automatically configure the Zone IP to be your computers public IP address. To override this with a custom domain or other thing, simply run the following command at your command line, replacing `my.domain.com` with your desired public IP or domain name:

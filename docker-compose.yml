@@ -21,12 +21,12 @@ services:
             context: .
             dockerfile: dockerfiles/dockstar-server.dockerfile
             args:
-                - ZONE_IP=${ZONE_IP}
                 - DS_USERNAME=${DS_USERNAME}
                 - DS_PASSWORD=${DS_PASSWORD}
                 - DS_SERVERNAME=${DS_SERVERNAME}
         environment:
             - ZONE_IP
+            - DS_GMS_LIST
             - DS_USERNAME
             - DS_PASSWORD
             - DS_SERVERNAME
