@@ -1,6 +1,8 @@
 # Dockstar: Darkstar Made Easy
 Dockstar lets you configure, build, and deploy a new [Darkstar Server](https://github.com/DarkstarProject/darkstar) with zero effort using Docker.
 
+![Dockstar running on MacOS with Ashita client in a Windows VM](dockstar.png)
+
 # Quick-Start
 0. Ensure you have the Bash shell (Mac OS and Linux automatically have this) and have [Docker](https://www.docker.com/get-docker) installed.
 1. Run `git clone https://github.com/crahda/dockstar` in a terminal
@@ -25,5 +27,3 @@ Whenever the Dockstar server is started via `bash start.sh`, it will automatical
 # Updating
 1. `git pull`
 2. `bash build.sh`
-
-![Dockstar running on MacOS with Ashita client in a Windows VM](dockstar.png)
