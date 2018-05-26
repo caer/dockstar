@@ -39,4 +39,4 @@ services:
             - ./config/map_darkstar.drk:/home/dockstar/darkstar/conf/map_darkstar.drk
             - ./config/search_server.drk:/home/dockstar/darkstar/conf/search_server.drk
             - ./config/server_message.drk:/home/dockstar/darkstar/conf/server_message.drk
-            - ./config/settings.lua:/home/dockstar/darkstar/scripts/settings.lua
+            - ./config/settings.lua:/home/dockstar/darkstar/scripts/globals/settings.lua
