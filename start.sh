@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source default environment.
-source scripts/env.sh
+source src/scripts/env.sh
 
 # Start composer.
-docker-compose up
+docker-compose -f src/docker-compose.yml --project-directory . up

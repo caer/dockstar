@@ -41,10 +41,10 @@ RUN sh autogen.sh && ./configure --enable-debug=gdb && make -j 8
 
 # Touch files that we will expect composer to inject at run-time.
 RUN touch start-darkstar.sh \
-          conf/login_darkstar.skel \
-          conf/map_darkstar.skel \
-          conf/search_server.skel \
-          conf/server_message.skel
+          conf/login_darkstar.drk \
+          conf/map_darkstar.drk \
+          conf/search_server.drk \
+          conf/server_message.drk
 
 # Start server.
 CMD ["/home/dockstar/darkstar/start-darkstar.sh"]

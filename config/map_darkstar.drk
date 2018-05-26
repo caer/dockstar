@@ -39,11 +39,11 @@ console_silent: 0
 #DO NOT CHANGE THESE BY HAND!!!!!
 #--------------------------------
 
-mysql_host:      dockstar-db
+mysql_host:      DRK_DB_HOST
 mysql_port:      3306
-mysql_login:     DS_USERNAME
-mysql_password:  DS_PASSWORD
-mysql_database:  dspdb
+mysql_login:     DRK_DB_USERNAME
+mysql_password:  DRK_DB_PASSWORD
+mysql_database:  DRK_DB_NAME
 
 #--------------------------------
 #Packet settings

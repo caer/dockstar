@@ -1,0 +1,42 @@
+version: "3"
+services:
+    dockstar-db:
+        image: mysql:5.6
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=${DRK_DB_NAME}
+            - MYSQL_USER=${DRK_DB_USERNAME}
+            - MYSQL_PASSWORD=${DRK_DB_PASSWORD}
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./data:/var/lib/mysql
+            - ./darkstar/sql:/tmp/darkstar/sql/:ro
+            - ./src/scripts/mysql:/docker-entrypoint-initdb.d/:ro
+            
+    dockstar-server:
+        depends_on:
+            - dockstar-db
+        image: dockstar-server
+        environment:
+            - DRK_GMS_LIST
+            - DRK_ZONE_IP
+            - DRK_DB_HOST
+            - DRK_DB_NAME
+            - DRK_DB_USERNAME
+            - DRK_DB_PASSWORD
+            - DRK_SERVERNAME
+        ports:
+            - "54001:54001"
+            - "54002:54002"
+            - "54231:54231"
+            - "53445:53445"
+            - "54230:54230/udp"
+            - "54230:54230/tcp"
+        volumes:
+            - ./src/scripts/start-darkstar.sh:/home/dockstar/darkstar/start-darkstar.sh
+            - ./config/login_darkstar.drk:/home/dockstar/darkstar/conf/login_darkstar.drk
+            - ./config/map_darkstar.drk:/home/dockstar/darkstar/conf/map_darkstar.drk
+            - ./config/search_server.drk:/home/dockstar/darkstar/conf/search_server.drk
+            - ./config/server_message.drk:/home/dockstar/darkstar/conf/server_message.drk
+            - ./config/settings.lua:/home/dockstar/darkstar/scripts/settings.lua

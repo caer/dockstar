@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source default environment.
-source scripts/env.sh
+source src/scripts/env.sh
 
 # Stop running instanced.
 bash stop.sh &> /dev/null
@@ -10,9 +10,9 @@ bash stop.sh &> /dev/null
 if [ -d "darkstar" ]; then
     echo "Using existing Darkstar repository."
 else
-    echo "Cloning new Darkstar repository and using MASTER branch (STABLE lags behind too far)."
+    echo "Cloning new Darkstar repository and using master branch."
     git clone http://github.com/DarkstarProject/darkstar.git/
 fi
 
 # Build server image.
-docker build -f dockerfiles/dockstar-server.dockerfile -t dockstar-server .
+docker build -f src/dockerfiles/dockstar-server.dockerfile -t dockstar-server .

@@ -47,17 +47,17 @@ login_auth_port: 54231
 #DO NOT CHANGE THESE BY HAND!!!!!
 #--------------------------------
 
-mysql_host:      dockstar-db
+mysql_host:      DRK_DB_HOST
 mysql_port:      3306
-mysql_login:     DS_USERNAME
-mysql_password:  DS_PASSWORD
-mysql_database:  dspdb
+mysql_login:     DRK_DB_USERNAME
+mysql_password:  DRK_DB_PASSWORD
+mysql_database:  DRK_DB_NAME
 
 #Search Server Port
 search_server_port: 54002
 
 #Server name (not longer than 15 characters)
-servername: DS_SERVERNAME
+servername: DRK_SERVERNAME
 
 #Central message server settings (ensure these are the same on both all map servers and the central (lobby) server
 msg_server_port: 54003
